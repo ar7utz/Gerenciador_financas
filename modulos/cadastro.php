@@ -6,11 +6,9 @@
         <title>Cadastro de Usuário</title>
     </head>
     <body>
-        <form action="login.php" method="POST">
+        <form action="login.php" method="POST" name="cadastro">
             
-            <div>
-                <h1>Cadastro de Login</h1>
-            </div>
+                <h1>Cadastro de Usuário</h1>
 
             
             <input type="submit" value="Enviar">
