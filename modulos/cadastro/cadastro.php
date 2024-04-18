@@ -8,7 +8,7 @@
     <body>
         <form action="login.php" method="POST" name="cadastro">
 
-            <h1>Cadastro de Usuário</h1>
+            <h1>CORNO DO CARALHO</h1>
             
             <input type="submit" value="Enviar">
         </form>
