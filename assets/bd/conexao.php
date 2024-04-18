@@ -1,18 +1,51 @@
 <?php
-// Configurações do banco de dados
-$host = 'localhost';
-$dbname = 'bd_gffa';
-$username = 'root';
-$password = '';
+    $base_dados = "bd_gffa";
+    $usuario = "root";
+    $senha = "";
+    $host = "localhost";
 
+    $conexaoBanco = new PDO("mysql:host={$host};dbname={$base_dados};charset=utf8", $usuario, $senha);
+    $GLOBALS['conexaoBanco'] = $conexaoBanco;
 
-try {
-    // Conecta ao banco de dados
-    $conexaoBanco = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    // Exibe erro caso a conexão falhe
-    echo "Falha na conexão com o banco de dados: " . $e->getMessage();
-    exit();
-}
-?>
+    //
+    // Busca e retorna um dado do banco
+    //
+
+    function retornaDado($sql)
+    {
+        $conexao = $GLOBALS['conexaoBanco'];
+        $resposta = $conexao->query($sql);
+
+        return $resposta->fetch();
+    }
+
+    //
+    // Busca e retorna os dados do banco
+    //
+
+    function retornaDados($sql)
+    {
+        $conexao = $GLOBALS['conexaoBanco'];
+        $resposta = $conexao->query($sql);
+
+        return $resposta->fetchAll();
+    }
+
+    function criarUsuario($email, $senha){
+        $conexao = $GLOBALS['conexaoBanco']; 
+
+        $sql = "INSERT 
+                    INTO usuario 
+                        (email, senha) 
+                    VALUES 
+                        (:email, :senha)";
+    
+        $res = $conexao->prepare($sql);
+    
+        $res->execute([
+            ':email'            => $email,
+            ':senha'            => $senha
+        ]);
+    
+        $res = $conexao->prepare($sql);
+    }
