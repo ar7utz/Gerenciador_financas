@@ -14,13 +14,12 @@
         <h1>LOGIN</h1>
         <form action="<?=arquivo('modulos/login/logon')?>" method="POST"></form>
 
-            <label for="login">Login</label>
-            <input type="text" name="login">
+            <input type="text" placeholder="username" name="login">
             
-            <label for="senha">Senha</label>
-            <input type="password" name="senha">
+            <input type="password" placeholder="name" name="senha">
 
             <input type="submit" value="Login">
         </form>
+
     </body>
 </html>

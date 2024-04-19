@@ -8,18 +8,35 @@
     </head>
     <body>
         <form action="login.php" method="POST" name="cadastro">
-
+            <div class="pageTitle">
             <h1>Cadastro de Usuário</h1>
+<<<<<<< HEAD
+            </div>
 
+            <div class="username">
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="Username">
+            </div>
+=======
+            
             <label for="NomeCompleto">Insira seu Nome Completo</label>
             <input type="text" value="Nome Completo">
+>>>>>>> fda2a6f493a138b9eb54779995f67e022c346298
 
-            <label for="email">Insira seu E-mail</label>
-            <input type="email" value="E-mail">
+            <div class="email">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" placeholder="E-mail">
+            </div>
+                
+            <div class="password">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" placeholder="Senha">
+            </div>
+                
+            <div class="termsAndCondition">
+                <label for="terms"><input type="checkbox"> Eu concordo com os termos e condições</label>
+            </div>
             
-            <label for="Senha">Insira sua Senha</label>
-            <input type="password" value="Senha">
-
             <input type="submit" value="Cadastrar">
         </form>
     </body>
