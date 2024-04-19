@@ -13,13 +13,12 @@
     <body>
         <form action="dashboard.php" method="POST">
 
-            <label for="login">Login</label>
-            <input type="text" name="login">
+            <input type="text" placeholder="Username" name="login">
             
-            <label for="senha">Senha</label>
-            <input type="password" name="senha">
+            <input type="password" placeholder="Senha" name="senha">
 
             <input type="submit" value="Login">
         </form>
+
     </body>
 </html>
