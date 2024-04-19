@@ -10,8 +10,15 @@
         <title>Login - Gerenciador de Finanças</title>
     </head>
     <body>
-        <form action="" method="POST">
+        <form action="dashboard.php" method="POST">
+
+            <label for="login">Login</label>
+            <input type="text" name="login">
             
+            <label for="senha">Senha</label>
+            <input type="text" name="senha">
+
+            <input type="submit" value="Login">
         </form>
     </body>
 </html>
