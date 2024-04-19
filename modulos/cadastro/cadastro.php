@@ -10,7 +10,7 @@
         <form action="login.php" method="POST" name="cadastro">
 
             <h1>Cadastro de Usuário</h1>
-
+            
             <label for="NomeCompleto">Insira seu Nome Completo</label>
             <input type="text" value="Nome Completo">
 
