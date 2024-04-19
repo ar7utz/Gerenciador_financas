@@ -12,6 +12,7 @@
     </head>
     <body>
         <form action="login.php" method="POST" name="cadastro">
+            
             <div class="pageTitle">
             <h1>Cadastro de Usuário</h1>
             </div>
