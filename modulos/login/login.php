@@ -13,9 +13,9 @@
     <body>
         <form action="dashboard.php" method="POST">
 
-            <input type="text" placeholder="Username" name="login">
+            <input type="text" placeholder="username" name="login">
             
-            <input type="password" placeholder="Senha" name="senha">
+            <input type="password" placeholder="name" name="senha">
 
             <input type="submit" value="Login">
         </form>
