@@ -12,7 +12,7 @@
             <h1>Cadastro de Usuário</h1>
             <input type="text" value="Nome Completo">
             <input type="email" value="E-mail">
-            
+            <input type="password" value="Senha">
             <input type="submit" value="Cadastrar">
         </form>
     </body>
