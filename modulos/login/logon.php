@@ -4,7 +4,7 @@ session_start();
 include '../assets/bd/conexao.php';
 
 if (empty($_POST['email']) && empty($_POST['senha'])) {
-    header('Location: login.php');
+    header('Location: ../login/login.php');
     exit;
 }
 
@@ -21,6 +21,6 @@ $preparacao->execute([$email, $senha]);
 // BUSCA OS DADOS E SALVA NA VARIAVEL DADOS
 $usuario = $preparacao->fetch();
 
-$_SESSION['user'] = $usuario['id'];
+$_SESSION['usuario'] = $usuario['ID'];
 
-header("Location: ../index.php ");
+header("Location: ../../index.php ");

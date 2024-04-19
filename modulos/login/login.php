@@ -12,11 +12,11 @@
     </head>
     <body>
         <h1>LOGIN</h1>
-        <form action="<?=arquivo('modulos/login/logon')?>" method="POST"></form>
+        <form action="<?=arquivo('../../modulos/login/login.php')?>" method="POST">
 
-            <input type="text" placeholder="username" name="login">
+            <input type="text" placeholder="email" name="email" autocomplete="off" required>
             
-            <input type="password" placeholder="name" name="senha">
+            <input type="password" placeholder="senha" name="senha" required>
 
             <input type="submit" value="Login">
         </form>

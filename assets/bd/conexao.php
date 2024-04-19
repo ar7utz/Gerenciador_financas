@@ -1,51 +1,27 @@
 <?php
-    $base_dados = "bd_gffa";
-    $usuario = "root";
-    $senha = "";
-    $host = "localhost";
+// Inclua a classe Banco
+require_once 'banco.php';
 
-    $conexaoBanco = new PDO("mysql:host={$host};dbname={$base_dados};charset=utf8mb4", $usuario, $senha);
-    $GLOBALS['conexaoBanco'] = $conexaoBanco;
+// Estabeleça a conexão usando a classe Banco
+$conexaoBanco = Banco::conectar();
 
-    //
-    // Busca e retorna um dado do banco
-    //
+// Você pode armazenar a conexão em $GLOBALS, mas considere usar uma abordagem mais modular
+$GLOBALS['conexaoBanco'] = $conexaoBanco;
 
-    function retornaDado($sql)
-    {
-        $conexao = $GLOBALS['conexaoBanco'];
-        $resposta = $conexao->query($sql);
+// Função para retornar um dado de uma consulta preparada
+function retornaDado($sql, $params = [])
+{
+    $conexao = $GLOBALS['conexaoBanco'];
+    $stmt = $conexao->prepare($sql);
+    $stmt->execute($params);
+    return $stmt->fetch();
+}
 
-        return $resposta->fetch();
-    }
-
-    //
-    // Busca e retorna os dados do banco
-    //
-
-    function retornaDados($sql)
-    {
-        $conexao = $GLOBALS['conexaoBanco'];
-        $resposta = $conexao->query($sql);
-
-        return $resposta->fetchAll();
-    }
-
-    function criarUsuario($email, $senha){
-        $conexao = $GLOBALS['conexaoBanco']; 
-
-        $sql = "INSERT 
-                    INTO usuario 
-                        (email, senha) 
-                    VALUES 
-                        (:email, :senha)";
-    
-        $res = $conexao->prepare($sql);
-    
-        $res->execute([
-            ':email'            => $email,
-            ':senha'            => $senha
-        ]);
-    
-        $res = $conexao->prepare($sql);
-    }
+// Função para retornar todos os dados de uma consulta preparada
+function retornaDados($sql, $params = [])
+{
+    $conexao = $GLOBALS['conexaoBanco'];
+    $stmt = $conexao->prepare($sql);
+    $stmt->execute($params);
+    return $stmt->fetchAll();
+}
