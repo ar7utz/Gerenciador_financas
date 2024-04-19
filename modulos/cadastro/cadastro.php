@@ -10,11 +10,8 @@
         <form action="login.php" method="POST" name="cadastro">
 
             <h1>Cadastro de Usuário</h1>
-<<<<<<< HEAD
-=======
             <input type="text" value="Nome Completo">
             <input type="email" value="E-mail">
->>>>>>> 096c665ee0b9a761b9e6f939c4b10e143766f58b
             
             <input type="submit" value="Cadastrar">
         </form>
