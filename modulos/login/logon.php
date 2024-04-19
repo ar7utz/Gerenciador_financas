@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include '../bd/conexao.php';
+include '../assets/bd/conexao.php';
 
 if (empty($_POST['email']) && empty($_POST['senha'])) {
     header('Location: login.php');

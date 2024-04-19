@@ -4,7 +4,7 @@
     $senha = "";
     $host = "localhost";
 
-    $conexaoBanco = new PDO("mysql:host={$host};dbname={$base_dados};charset=utf8", $usuario, $senha);
+    $conexaoBanco = new PDO("mysql:host={$host};dbname={$base_dados};charset=utf8mb4", $usuario, $senha);
     $GLOBALS['conexaoBanco'] = $conexaoBanco;
 
     //

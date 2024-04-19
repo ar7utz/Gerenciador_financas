@@ -2,9 +2,7 @@
     define('ROOT_PATH', 'http://localhost/gerenciador_financas/');
     define('ROOT_DIR', __DIR__);
 
-    include_once path('./assets/bd/conexao.php');
-
-   
+    include_once path('/assets/bd/conexao.php');
 
     function path($file)
     {

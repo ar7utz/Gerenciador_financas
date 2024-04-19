@@ -11,7 +11,8 @@
         <link rel="stylesheet" href="../../assets/css/style.css">
     </head>
     <body>
-        <form action="dashboard.php" method="POST">
+        <h1>LOGIN</h1>
+        <form action="<?=arquivo('modulos/login/logon')?>" method="POST"></form>
 
             <input type="text" placeholder="username" name="login">
             
