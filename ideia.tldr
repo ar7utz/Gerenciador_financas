@@ -42,9 +42,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 1407.1967635546227,
-			"y": 3229.1804882183433,
-			"lastActivityTimestamp": 1713906428350,
+			"x": -1222.351095450536,
+			"y": 918.4424270492545,
+			"lastActivityTimestamp": 1713906662531,
 			"meta": {}
 		},
 		{
@@ -55,9 +55,9 @@
 			"typeName": "page"
 		},
 		{
-			"x": -829.7534119951127,
-			"y": -2920.394526371444,
-			"z": 1.4702740930466909,
+			"x": 2413.0306337224783,
+			"y": 19.948423526824037,
+			"z": 0.3250244818699589,
 			"meta": {},
 			"id": "camera:page:T5HwZF8w95xfZ62shXmxs",
 			"typeName": "camera"
@@ -67,9 +67,7 @@
 			"id": "instance_page_state:page:T5HwZF8w95xfZ62shXmxs",
 			"pageId": "page:T5HwZF8w95xfZ62shXmxs",
 			"typeName": "instance_page_state",
-			"selectedShapeIds": [
-				"shape:16bTrl4mIk5r6BmK-WV1h"
-			],
+			"selectedShapeIds": [],
 			"hintingShapeIds": [],
 			"erasingShapeIds": [],
 			"hoveredShapeId": null,
@@ -86,7 +84,7 @@
 			},
 			"brush": null,
 			"cursor": {
-				"type": "cross",
+				"type": "default",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -96,8 +94,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1062,
-				"h": 624
+				"w": 1616,
+				"h": 936
 			},
 			"zoomBrush": null,
 			"isGridMode": false,
