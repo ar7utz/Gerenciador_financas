@@ -35,5 +35,4 @@ if ($usuario) {
     exit;
 }
 
-
 header("Location: ../dashboard/hplogin.php ");
