@@ -15,6 +15,7 @@ session_start();
 <body>
     <h1>teste</h1>
     <div class="navLoginSucess">
+        <a href="../dashboard/dashboard.php">Dashboard</a>
         <a href="../login/logout.php">Logout</a>
     </div>
 </body>

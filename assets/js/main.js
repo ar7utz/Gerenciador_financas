@@ -12,24 +12,21 @@ const fecharModalButton = document.getElementById('fecharModal');
 const transacoes = [];
 
 function atualizarBalanco() {
-    const entradas = transacoes
-        .filter(transacao => transacao.valor > 0)
-        .reduce((total, transacao) => total + transacao.valor, 0)
-        .toFixed(2);
-
-    const saidas = transacoes
-        .filter(transacao => transacao.valor < 0)
-        .reduce((total, transacao) => total + transacao.valor, 0)
-        .toFixed(2);
-
-    const total = transacoes
-        .reduce((total, transacao) => total + transacao.valor, 0)
-        .toFixed(2);
-
-    saldoElement.textContent = `R$ ${total}`;
-    entradasElement.textContent = `R$ ${entradas}`;
-    saidasElement.textContent = `R$ ${Math.abs(saidas)}`;
+    // Fazer uma solicitação AJAX para atualizar_balanco.php
+    fetch('atualizar_balanco.php')
+        .then(response => response.json())
+        .then(data => {
+            // Atualizar os elementos HTML com os valores retornados
+            saldoElement.textContent = `R$ ${data.saldo.toFixed(2)}`;
+            entradasElement.textContent = `R$ ${data.entradas.toFixed(2)}`;
+            saidasElement.textContent = `R$ ${data.saidas.toFixed(2)}`;
+        })
+        .catch(error => console.error('Erro ao atualizar o balanço:', error));
 }
+
+// Chamar a função para atualizar o balanço
+atualizarBalanco();
+
 
 let indiceEdicao = -1; // Inicialmente, não estamos editando nenhuma transação
 

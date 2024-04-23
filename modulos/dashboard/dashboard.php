@@ -1,3 +1,6 @@
+<?php
+include ('../../assets/bd/conexao.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -7,8 +10,8 @@
     <meta http-equiv="content-language" content="pt-BR" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/scrollbar.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/scrollbar.css" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -22,14 +25,15 @@
     <header>
       <div class="container">
         <h1>Gerenciamento de Finanças</h1>
+        <a href="../login/logout.php">sair</a> <!-- improvisado -->
         <button id="toggleModal">+ Nova Transação</button>
       </div>
     </header>
     <main>
       <div class="container">
         <div class="total">
-          <h2>SALDO</h2>
-          <p id="saldo">R$ 0,00</p>
+        <h2>SALDO</h2>
+        <p id="saldo">R$ 0,00</p>
         </div>
         <div class="entradas-saidas">
           <div class="card entradas">
@@ -43,24 +47,60 @@
         </div>
         <div class="historico">
           <h2>Histórico</h2>
-          <ul id="historico-list"></ul>
+          <ul id="historico-list">
+          <?php
+            include ('../../assets/bd/conexao.php');
+
+            // Consultar o banco de dados para obter todas as transações
+            $sql = "SELECT * FROM transacoes WHERE usuario_id = ? ORDER BY data DESC";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('i', $usuario_id);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+
+            // Verificar se há transações
+            if ($resultado->num_rows > 0) {
+                // Exibir as transações no histórico
+                while ($row = $resultado->fetch_assoc()) {
+                  echo '<li>';
+                  echo '<span>' . $row['descricao'] . '</span>';
+                  echo '<span>' . $row['data'] . '</span>';
+                  echo '<span>' . $row['valor'] . '</span>';
+                  echo '<button class="editar" ' . $row['id'] . '">Editar</button>';
+                  echo '<button class="excluir" ' . $row['id'] . '">Excluir</button>';
+                  echo '</li>';
+                }
+            } else {
+                // Se não houver transações, exibir uma mensagem indicando que o histórico está vazio
+                echo '<li>Nenhuma transação encontrada.</li>';
+            }
+            ?>
+          </ul>
         </div>
       </div>
     </main>
-    <div class="modal-overlay" id="modal">
-      <div class="modal">
-        <h2>Nova Transação</h2>
-        <input type="text" id="descricao" placeholder="Descrição" />
-        <input type="number" id="valor" placeholder="Valor" />
-        <input type="date" id="data" />
-        <div class="botoes">
-          <button class="cancelar" id="fecharModal">Cancelar</button>
-          <button class="confirmar" onclick="adicionarTransacao()">
-            Salvar
-          </button>
+    <form action="../transacoes/add_transacao.php" method="POST" >
+        <div class="modal-overlay" id="modal" >
+            <div class="modal">
+                <h2>Nova Transação</h2>
+                <div class="tipoTransacao">
+                    <select name="tipo" required>
+                        <option value="positivo">Transação Positiva</option>
+                        <option value="negativo">Transação Negativa</option>
+                    </select>
+                </div>
+                <form id="novaTransacaoForm" method="POST" action="adicionarTransacao.php">
+                    <input type="text" name="descricao" placeholder="Descrição" required>
+                    <input type="number" name="valor" placeholder="Valor" required>
+                    <input type="date" name="data" required>
+                    <div class="botoes">
+                        <button type="button" class="cancelar" id="fecharModal">Cancelar</button>
+                        <button type="submit" class="confirmar">Salvar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </div>
+    </form>
 
     <!-- Modal de confirmação de exclusão -->
     <div id="modalConfirmarExclusao" class="modal">
@@ -71,6 +111,6 @@
       </div>
     </div>
 
-    <script src="assets/js/main.js"></script>
+    <script src="../../assets/js/main.js"></script>
   </body>
 </html>
