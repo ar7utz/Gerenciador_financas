@@ -1,7 +1,3 @@
-<?php
-    include_once "../../config.php";
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -11,14 +7,14 @@
         <title>Cadastro de Usuário</title>
     </head>
     <body>
-        <form action="login.php" method="POST" name="cadastro">
+        <form action="cadastrar.php" method="POST">
             
             <div class="pageTitle">
             <h1>Cadastro de Usuário</h1>
             </div>
             
             <label for="NomeCompleto">Insira seu Nome Completo</label>
-            <input type="text" placeholder="Nome">
+            <input type="text" name="nome" placeholder="Nome">
 
             <div class="email">
                 <label for="email">E-mail</label>

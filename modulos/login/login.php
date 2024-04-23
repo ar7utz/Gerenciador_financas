@@ -12,7 +12,7 @@
     </head>
     <body>
         <h1>LOGIN</h1>
-        <form action="<?=arquivo('../../modulos/login/login.php')?>" method="POST">
+        <form action="logon.php" method="POST">
 
             <input type="text" placeholder="email" name="email" autocomplete="off" required>
             
