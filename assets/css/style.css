@@ -256,6 +256,7 @@ h3 {
     border: 2px outset black;
 }
 
-#nav{
-    
+/*mensagem de erro se email ou senha estiver incorreto no login*/
+#erro span{
+    color: red;
 }

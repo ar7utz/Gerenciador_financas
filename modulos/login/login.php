@@ -12,6 +12,7 @@
     </head>
     <body>
         <h1>LOGIN</h1>
+
         <form action="logon.php" method="POST">
 
             <input type="text" placeholder="email" name="email" autocomplete="off" required>
@@ -20,6 +21,14 @@
 
             <input type="submit" value="Login">
         </form>
+
+        <?php
+            // Verifica se a mensagem de erro está definida na variável de sessão
+            if (isset($_SESSION['erro_login'])) {
+            echo '<p style="color: red;">' . $_SESSION['erro_login'] . '</p>';
+            unset($_SESSION['erro_login']); // Remove a mensagem de erro após exibi-la
+            }
+        ?>
 
     </body>
 </html>
