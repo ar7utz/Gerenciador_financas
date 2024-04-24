@@ -14,16 +14,16 @@
             </div>
             
             <label for="NomeCompleto">Insira seu Nome Completo</label>
-            <input type="text" name="nome" placeholder="Nome" require>
+            <input type="text" name="nome" placeholder="Nome" required>
 
             <div class="email">
                 <label for="email">E-mail</label>
-                <input type="email" name="email" placeholder="E-mail" require>
+                <input type="email" name="email" placeholder="E-mail" required>
             </div>
                 
             <div class="password">
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" placeholder="Senha" require>
+                <input type="password" name="senha" placeholder="Senha" required>
             </div>
                 
             <div class="termsAndCondition">

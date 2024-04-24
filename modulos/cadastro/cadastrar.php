@@ -23,8 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "INSERT INTO user (nome, email, senha) VALUES ('$nome', '$email', '$senha')"; 
         if($conn->query($sql) === true){
             $_SESSION['status_cadastro'] = true;
-            // Redirecionar para outra página após o cadastro ser concluído
-            header('Location: colocar homepagelogonaqui.php');
             exit;
         } else {
             $_SESSION['status_cadastro'] = false;
@@ -40,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $sql = "INSERT INTO user (nome, email, senha) VALUES ('$nome', '$email', '$senha')"; 
 if($conn->query ($sql) === true){
     $_SESSION['status_cadastro'] = true;
+    header('Location: ../dashboard/hplogin.php');
 }
 
 $conn->close();
