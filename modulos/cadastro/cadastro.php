@@ -27,7 +27,7 @@
             </div>
                 
             <div class="termsAndCondition">
-                <label for="terms"><input type="checkbox"> Eu concordo com os termos e condições</label>
+                <label><input type="checkbox"> Eu concordo com os termos e condições</label>
             </div>
             
             <input type="submit" value="Cadastrar">
