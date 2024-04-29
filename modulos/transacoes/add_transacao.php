@@ -1,11 +1,13 @@
 <?php
+session_start();
+
 include ('../../assets/bd/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
     $valor = (float)$_POST['valor'];
     $data = $_POST['data'];
-    $usuario_id = $_POST['usuario_id'];
+    $usuario_id = $_SESSION['id'];
     $tipo = $_POST['tipo']; // Obter o tipo de transação (positivo ou negativo)
 
     if (empty($descricao) || empty($valor) || empty($data)) {

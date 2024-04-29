@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Se não houver nenhum usuário com o mesmo e-mail, proceder com o cadastro
+    // Se não houver nenhum usuário com o mesmo e-mail, procede com o cadastro
     if ($result->num_rows === 0) {
         $sql = "INSERT INTO user (nome, email, senha) VALUES ('$nome', '$email', '$senha')"; 
         if($conn->query($sql) === true){
