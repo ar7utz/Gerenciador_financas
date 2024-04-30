@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "INSERT INTO user (nome, email, senha) VALUES ('$nome', '$email', '$senha')"; 
         if($conn->query($sql) === true){
             $_SESSION['status_cadastro'] = true;
+            header('Location: ../login/login.php');
             exit;
         } else {
             $_SESSION['status_cadastro'] = false;

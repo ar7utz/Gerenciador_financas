@@ -3,7 +3,7 @@ session_start();
 
 include ('../../assets/bd/conexao.php');
 
-if (empty($_POST['email']) && empty($_POST['senha'])) {
+if (empty($_POST['email']) || empty($_POST['senha'])) {
     header('Location: ../login/login.php');
     exit;
 }
@@ -17,17 +17,14 @@ $preparacao->bind_param('ss', $email, $senha);
 $preparacao->execute();
 $resultado = $preparacao->get_result();
 
-
-$preparacao->execute([$email, $senha]);
-
 // BUSCA OS DADOS E SALVA NA VARIAVEL DADOS
-$usuario = $preparacao->fetch();
+$usuario = $resultado->fetch_assoc();
 
-if ($resultado->num_rows > 0) {
-    $usuario = $resultado->fetch_assoc();
-
-    $_SESSION['id'] = $usuario['id'];
+if ($usuario) {
+    // Armazenar o ID do usuário na sessão
+    $_SESSION['user_id'] = $usuario['id'];
     header("Location: ../dashboard/hplogin.php");
+
     exit;
 } else {
     $_SESSION['erro_login'] = "<span class='erro'> E-mail ou senha incorretos! </span>";
@@ -35,4 +32,4 @@ if ($resultado->num_rows > 0) {
     exit;
 }
 
-header("Location: ../dashboard/hplogin.php ");
+?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include ('../../assets/bd/conexao.php');
 ?>
 <!DOCTYPE html>
@@ -25,41 +26,78 @@ include ('../../assets/bd/conexao.php');
     <header>
       <div class="container">
         <h1>Gerenciamento de Finanças</h1>
-        <a href="../login/logout.php">sair</a> <!-- improvisado -->
+        <button><a href="../login/logout.php"></a>Sair</button>
         <button id="toggleModal">+ Nova Transação</button>
       </div>
     </header>
     <main>
+      <?php
+        // Consultar o banco de dados para obter todas as transações
+        $sql = "SELECT SUM(valor) AS total FROM transacoes WHERE usuario_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $_SESSION['user_id']);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $row = $resultado->fetch_assoc();
+        $saldo = $row['total'];
+
+        // Consultar o banco de dados para obter o total de entradas
+        $sql = "SELECT SUM(valor) AS total FROM transacoes WHERE usuario_id = ? AND valor > 0";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $_SESSION['user_id']);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $row = $resultado->fetch_assoc();
+        $entradas = $row['total'];
+
+        // Consultar o banco de dados para obter o total de saídas
+        $sql = "SELECT SUM(valor) AS total FROM transacoes WHERE usuario_id = ? AND valor < 0";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $_SESSION['user_id']);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $row = $resultado->fetch_assoc();
+        $saidas = abs($row['total']); // Valor absoluto para garantir que seja positivo
+        ?>
+
       <div class="container">
         <div class="total">
         <h2>SALDO</h2>
-        <p id="saldo">R$ 0,00</p>
+        <p id="saldo"><?php echo number_format($saldo, 2); ?></p>
         </div>
         <div class="entradas-saidas">
           <div class="card entradas">
             <h3>Entradas</h3>
-            <p id="entradas">R$ 0,00</p>
+            <p id="entradas"><?php echo number_format($entradas, 2); ?></p>
           </div>
           <div class="card saidas">
             <h3>Saídas</h3>
-            <p id="saidas">R$ 0,00</p>
+            <p id="saidas"><?php echo number_format($saidas, 2); ?></p>
           </div>
-        </div>
+      </div>
         <div class="historico">
           <h2>Histórico</h2>
           <ul id="historico-list">
           <?php
             include ('../../assets/bd/conexao.php');
 
-            // Consultar o banco de dados para obter todas as transações
-            $sql = "SELECT * FROM transacoes WHERE usuario_id = ? ORDER BY data DESC";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param('i', $usuario_id);
-            $stmt->execute();
-            $resultado = $stmt->get_result();
+            if (isset($_SESSION['user_id'])) {
+              $usuario_id = $_SESSION['user_id'];
+          
+              $sql = "SELECT * FROM transacoes WHERE usuario_id = ? ORDER BY data DESC";
+              $stmt = $conn->prepare($sql);
+              $stmt->bind_param('i', $usuario_id);
+              $stmt->execute();
+              $resultado = $stmt->get_result();
 
-            // Verificar se há transações
-            if ($resultado->num_rows > 0) {
+              $sql = "SELECT * FROM transacoes WHERE usuario_id = ? ORDER BY data DESC";
+              $stmt = $conn->prepare($sql);
+              $stmt->bind_param('i', $usuario_id);
+              $stmt->execute();
+              $resultado = $stmt->get_result();
+              
+              // Verificar se há transações
+              if ($resultado->num_rows > 0) {
                 // Exibir as transações no histórico
                 while ($row = $resultado->fetch_assoc()) {
                   echo '<li>';
@@ -70,9 +108,9 @@ include ('../../assets/bd/conexao.php');
                   echo '<button class="excluir" ' . $row['id'] . '">Excluir</button>';
                   echo '</li>';
                 }
-            } else {
-                // Se não houver transações, exibir uma mensagem indicando que o histórico está vazio
+              } else {
                 echo '<li>Nenhuma transação encontrada.</li>';
+              }
             }
             ?>
           </ul>
@@ -111,6 +149,6 @@ include ('../../assets/bd/conexao.php');
       </div>
     </div>
 
-    <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js"></script>
   </body>
 </html>
