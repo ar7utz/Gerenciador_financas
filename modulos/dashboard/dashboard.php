@@ -27,6 +27,7 @@ include ('../../assets/bd/conexao.php');
       <div class="container">
         <h1>Gerenciamento de Finanças</h1>
         <a class="btn_sair" href="../login/logout.php">Sair</a>
+        <a class="btn_voltar" href="../dashboard/hplogin.php">Voltar</a>
         <button id="toggleModal">+ Nova Transação</button>
       </div>
     </header>

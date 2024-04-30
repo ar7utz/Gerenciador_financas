@@ -282,3 +282,25 @@ h3 {
     background-color: #0056b3;
 }
 
+.btn_voltar {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 20px;
+    right: 100px;
+    padding: 10px 20px;
+    border: 2px outset black;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn_voltar:hover {
+    background-color: #0056b3;
+}
+
+
