@@ -26,7 +26,7 @@ include ('../../assets/bd/conexao.php');
     <header>
       <div class="container">
         <h1>Gerenciamento de Finanças</h1>
-        <button><a href="../login/logout.php"></a>Sair</button>
+        <a class="btn_sair" href="../login/logout.php">Sair</a>
         <button id="toggleModal">+ Nova Transação</button>
       </div>
     </header>
