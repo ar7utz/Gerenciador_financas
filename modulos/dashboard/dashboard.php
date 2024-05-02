@@ -105,8 +105,8 @@ include ('../../assets/bd/conexao.php');
                   echo '<span>' . $row['descricao'] . '</span>';
                   echo '<span>' . $row['data'] . '</span>';
                   echo '<span>' . $row['valor'] . '</span>';
-                  echo '<button class="editar" ' . $row['id'] . '">Editar</button>';
-                  echo '<button class="excluir" ' . $row['id'] . '">Excluir</button>';
+                  echo '<button class="editar" data-id = " ' . $row['id'] . '">Editar</button>';
+                  echo '<button class="excluir" data-id = " ' . $row['id'] . '">Excluir</button>';
                   echo '</li>';
                 }
               } else {
@@ -141,7 +141,6 @@ include ('../../assets/bd/conexao.php');
         </div>
     </form>
 
-    <!-- Modal de confirmação de exclusão -->
     <div id="modalConfirmarExclusao" class="modal">
       <div class="modal-content">
         <p>Tem certeza de que deseja excluir esta nota?</p>
