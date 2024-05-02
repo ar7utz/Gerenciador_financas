@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -290,7 +291,7 @@ h3 {
     right: 100px;
     padding: 10px 20px;
     border: 2px outset black;
-    background-color: #007bff;
+    background-color: #0056b3;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -303,4 +304,145 @@ h3 {
     background-color: #0056b3;
 }
 
+.nav-login{
+    width: 100%;
+    background-color: #e92929;
+    color: #fff;
+    text-align: right;
+    padding: 15px;
+    font-size: 20px;
+}
 
+/*cadastro*/
+
+.formCad {
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pageTitle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pageTitle h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.formCad label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.formCad input[type="text"],
+.formCad input[type="email"],
+.formCad input[type="password"],
+.formCad input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formCad input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formCad input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.btn_voltar_cad {
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    border: 2px outset black;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/*h1 index*/
+
+.titulo_index{
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+/*login*/
+
+.form_login{
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pageTitle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pageTitle h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.form_login input[name="email"],
+.form_login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form_login input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form_login input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.navLoginSucess{
+    width: 100%;
+    background-color: #e92929;
+    color: #fff;
+    text-align: right;
+    padding: 15px;
+    font-size: 20px;
+}

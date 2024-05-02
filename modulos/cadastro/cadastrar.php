@@ -1,11 +1,8 @@
 <?php
-// Iniciar a sessão
 session_start();
 
-// Incluir o arquivo de conexão com o banco de dados
 include ('../../assets/bd/conexao.php');
 
-// Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Receber os dados do formulário
     $nome = $_POST['nome'];

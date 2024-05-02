@@ -7,15 +7,21 @@
         <link rel="stylesheet" href="../../assets/css/style.css">
     </head>
     <body>
-        <h1>LOGIN</h1>
+        <a class="btn_voltar_cad" href="../../index.php">Voltar</a>
 
-        <form action="logon.php" method="POST">
-
-            <input type="text" placeholder="email" name="email" autocomplete="off" required>
-            
-            <input type="password" placeholder="senha" name="senha" required>
-
-            <input type="submit" value="Login">
+        <form action="logon.php" method="POST" class="form_login">
+            <div class="pageTitle">
+                <h1>LOGIN</h1>
+            </div>
+            <div class="email">
+                <input type="text" placeholder="Email" name="email" autocomplete="off" required>
+            </div>
+            <div class="password">
+                <input type="password" placeholder="Senha" name="senha" required>
+            </div>
+            <div>
+                <input type="submit" value="Login">
+            </div>
         </form>
 
         <?php

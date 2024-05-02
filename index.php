@@ -7,10 +7,10 @@
   <title>Gerenciador de Finanças</title>
 </head>
 <body>
-  <h1>Gerenciador de Finanças</h1>
   <div class="nav-login">
-      <a href="./modulos/login/login.php">Login</a>
-      <a href="./modulos/cadastro/cadastro.php">Registre-se</a>
+    <a href="./modulos/login/login.php">Login</a>
+    <a href="./modulos/cadastro/cadastro.php">Registre-se</a>
   </div>
+  <h1 class="titulo_index">Gerenciador de Finanças</h1>
 </body>
 </html>

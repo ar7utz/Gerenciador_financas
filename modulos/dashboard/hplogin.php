@@ -13,10 +13,10 @@ session_start();
     <title>Dashboard - Gerenciador</title>
 </head>
 <body>
-    <h1>teste</h1>
     <div class="navLoginSucess">
         <a href="../dashboard/dashboard.php">Dashboard</a>
         <a href="../login/logout.php">Logout</a>
     </div>
+    <h1>Teste</h1>
 </body>
 </html>

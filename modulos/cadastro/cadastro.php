@@ -7,12 +7,14 @@
         <title>Cadastro de Usuário</title>
     </head>
     <body>
-        <form action="cadastrar.php" method="POST">
+        <a class="btn_voltar_cad" href="../../index.php">Voltar</a>
+        
+        <form action="cadastrar.php" method="POST" class="formCad">
             
             <div class="pageTitle">
             <h1>Cadastro de Usuário</h1>
+
             </div>
-            
             <label for="NomeCompleto">Insira seu Nome Completo</label>
             <input type="text" name="nome" placeholder="Nome" required>
 
@@ -24,10 +26,6 @@
             <div class="password">
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" placeholder="Senha" required>
-            </div>
-                
-            <div class="termsAndCondition">
-                <label><input type="checkbox"> Eu concordo com os termos e condições</label>
             </div>
             
             <input type="submit" value="Cadastrar">
