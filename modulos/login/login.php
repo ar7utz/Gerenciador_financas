@@ -28,7 +28,7 @@
             // Verifica se a mensagem de erro está definida na variável de sessão
             if (isset($_SESSION['erro_login'])) {
             echo '<p style="color: red;">' . $_SESSION['erro_login'] . '</p>';
-            unset($_SESSION['erro_login']); // Remove a mensagem de erro após exibi-la
+            unset($_SESSION['erro_login']);
             }
         ?>
 

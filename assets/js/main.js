@@ -11,20 +11,6 @@ const fecharModalButton = document.getElementById('fecharModal');
 
 const transacoes = [];
 
-function atualizarBalanco() {
-    fetch('atualizar_balanco.php')
-        .then(response => response.json())
-        .then(data => {
-            saldoElement.textContent = `R$ ${data.saldo.toFixed(2)}`;
-            entradasElement.textContent = `R$ ${data.entradas.toFixed(2)}`;
-            saidasElement.textContent = `R$ ${data.saidas.toFixed(2)}`;
-        })
-        .catch(error => console.error('Erro ao atualizar o balanço:', error));
-}
-
-atualizarBalanco();
-
-
 let indiceEdicao = -1; 
 
 function adicionarTransacao() {
@@ -116,20 +102,6 @@ function atualizarHistorico() {
         const listItem = criarItemHistorico(transacao);
         historicoList.appendChild(listItem);
     });
-
-    document.querySelectorAll('.editar').forEach(button => {
-        button.addEventListener('click', function() {
-            const transacaoId = this.getAttribute('data-id');
-            editarTransacao(transacaoId);
-        });
-    });
-    
-    document.querySelectorAll('.excluir').forEach(button => {
-        button.addEventListener('click', function() {
-            const transacaoId = this.getAttribute('data-id');
-            confirmarExclusao(transacaoId);
-        });
-    });
 }
 
 function removerTransacao(index) {
@@ -140,33 +112,59 @@ function removerTransacao(index) {
     }
 }
 
-atualizarBalanco();
 
-function confirmarExclusao(index) {
-    const modalConfirmarExclusao = document.getElementById('modalConfirmarExclusao');
-    const confirmarExcluirNotaButton = document.getElementById('confirmarExcluirNota');
-    const cancelarExcluirNotaButton = document.getElementById('cancelarExcluirNota');
 
-    modalConfirmarExclusao.style.display = 'flex';
+function confirmarExclusao(transacaoId) {
+    const transacaoIndex = parseInt(transacaoId);
 
-    confirmarExcluirNotaButton.onclick = function () {
-        removerTransacao(index);
-        modalConfirmarExclusao.style.display = 'none';
-    };
+    if (!isNaN(transacaoIndex) && transacaoIndex >= 0 && transacaoIndex < transacoes.length) {
+        const modalConfirmarExclusao = document.getElementById('modalConfirmarExclusao');
+        const confirmarExcluirNotaButton = document.getElementById('confirmarExcluirNota');
+        const cancelarExcluirNotaButton = document.getElementById('cancelarExcluirNota');
 
-    cancelarExcluirNotaButton.onclick = function () {
-        modalConfirmarExclusao.style.display = 'none';
-    };
+        modalConfirmarExclusao.style.display = 'flex';
+
+        confirmarExcluirNotaButton.onclick = function () {
+            removerTransacao(transacaoIndex);
+            modalConfirmarExclusao.style.display = 'none';
+        };
+
+        cancelarExcluirNotaButton.onclick = function () {
+            modalConfirmarExclusao.style.display = 'none';
+        };
+    } else {
+        console.error('Transação não encontrada:', transacaoId);
+    }
 }
 
-function editarTransacao(index) {
-    const transacao = transacoes[index];
+function editarTransacao(transacaoId) {
+    const transacaoIndex = parseInt(transacaoId);
 
-    descricaoInput.value = transacao.descricao;
-    valorInput.value = transacao.valor;
-    dataInput.value = transacao.data;
+    if (!isNaN(transacaoIndex) && transacaoIndex >= 0 && transacaoIndex < transacoes.length) {
+        const transacao = transacoes[transacaoIndex];
 
-    indiceEdicao = index;
+        descricaoInput.value = transacao.descricao;
+        valorInput.value = transacao.valor;
+        dataInput.value = transacao.data;
 
-    abrirModal();
+        indiceEdicao = transacaoIndex;
+
+        abrirModal();
+    } else {
+        console.error('Transação não encontrada:', transacaoId);
+    }
 }
+
+document.querySelectorAll('.editar').forEach(button => {
+    button.addEventListener('click', function() {
+        const transacaoId = this.getAttribute('data-id');
+        editarTransacao(transacaoId);
+    });
+});
+
+document.querySelectorAll('.excluir').forEach(button => {
+    button.addEventListener('click', function() {
+        const transacaoId = this.getAttribute('data-id');
+        confirmarExclusao(transacaoId);
+    });
+});

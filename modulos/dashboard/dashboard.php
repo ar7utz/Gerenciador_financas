@@ -105,8 +105,8 @@ include ('../../assets/bd/conexao.php');
                   echo '<span>' . $row['descricao'] . '</span>';
                   echo '<span>' . $row['data'] . '</span>';
                   echo '<span>' . $row['valor'] . '</span>';
-                  echo '<button class="editar" data-id = " ' . $row['id'] . '">Editar</button>';
-                  echo '<button class="excluir" data-id = " ' . $row['id'] . '">Excluir</button>';
+                  echo '<button class="editar" data-id ="' . $row['id'] . '">Editar</button>';
+                  echo '<button class="excluir" data-id ="' . $row['id'] . '">Excluir</button>';
                   echo '</li>';
                 }
               } else {
