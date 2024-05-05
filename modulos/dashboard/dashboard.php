@@ -102,11 +102,13 @@ include ('../../assets/bd/conexao.php');
                 // Exibir as transações no histórico
                 while ($row = $resultado->fetch_assoc()) {
                   echo '<li>';
-                  echo '<span>' . $row['descricao'] . '</span>';
-                  echo '<span>' . $row['data'] . '</span>';
-                  echo '<span>' . $row['valor'] . '</span>';
-                  echo '<button class="editar" data-id ="' . $row['id'] . '">Editar</button>';
-                  echo '<button class="excluir" data-id ="' . $row['id'] . '">Excluir</button>';
+                  echo '<span class="descricao">' . $row['descricao'] . '</span>';
+                  echo '<span class="data">' . $row['data'] . '</span>';
+                  echo '<span class="valor">' . $row['valor'] . '</span>';
+                  echo '<div>';
+                  echo '<button class="editar" data-id="' . $row['id'] . '">Editar</button>';
+                  echo '<button class="excluir" data-id="' . $row['id'] . '">Excluir</button>';
+                  echo '</div>';
                   echo '</li>';
                 }
               } else {

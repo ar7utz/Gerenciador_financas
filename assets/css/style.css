@@ -116,9 +116,16 @@ h3 {
     font-size: 1.25rem;
 }
 
-.historico li .data {
-    font-size: 1rem;
-    color: #888;
+.descricao {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.data{
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .modal-overlay {

@@ -117,6 +117,8 @@ function removerTransacao(index) {
 function confirmarExclusao(transacaoId) {
     const transacaoIndex = parseInt(transacaoId);
 
+    console.log('ID da transação:', transacaoId);
+
     if (!isNaN(transacaoIndex) && transacaoIndex >= 0 && transacaoIndex < transacoes.length) {
         const modalConfirmarExclusao = document.getElementById('modalConfirmarExclusao');
         const confirmarExcluirNotaButton = document.getElementById('confirmarExcluirNota');
@@ -138,10 +140,13 @@ function confirmarExclusao(transacaoId) {
 }
 
 function editarTransacao(transacaoId) {
+    console.log('ID da transação:', transacaoId);
+
     const transacaoIndex = parseInt(transacaoId);
 
     if (!isNaN(transacaoIndex) && transacaoIndex >= 0 && transacaoIndex < transacoes.length) {
         const transacao = transacoes[transacaoIndex];
+        console.log('Transação:', transacao);
 
         descricaoInput.value = transacao.descricao;
         valorInput.value = transacao.valor;
@@ -155,16 +160,28 @@ function editarTransacao(transacaoId) {
     }
 }
 
-document.querySelectorAll('.editar').forEach(button => {
-    button.addEventListener('click', function() {
-        const transacaoId = this.getAttribute('data-id');
-        editarTransacao(transacaoId);
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.editar').forEach(button => {
+        button.addEventListener('click', function() {
+            const transacaoId = this.getAttribute('data-id');
+            editarTransacao(transacaoId);
+        });
+    });
+
+    document.querySelectorAll('.excluir').forEach(button => {
+        button.addEventListener('click', function() {
+            const transacaoId = this.getAttribute('data-id');
+            confirmarExclusao(transacaoId);
+        });
     });
 });
 
-document.querySelectorAll('.excluir').forEach(button => {
-    button.addEventListener('click', function() {
-        const transacaoId = this.getAttribute('data-id');
-        confirmarExclusao(transacaoId);
+function atualizarHistorico() {
+    historicoList.innerHTML = '';
+    transacoes.forEach(transacao => {
+        const listItem = criarItemHistorico(transacao);
+        historicoList.appendChild(listItem);
     });
-});
+
+    console.log('Transações:', transacoes); // Adiciona um log para exibir o array de transações
+}
