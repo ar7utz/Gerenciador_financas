@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Abr-2024 às 21:41
--- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.2.12
+-- Generation Time: May 09, 2024 at 09:44 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_gffa`
+-- Database: `bd_gffa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `login`
+-- Table structure for table `login`
 --
 
 CREATE TABLE `login` (
@@ -36,7 +36,7 @@ CREATE TABLE `login` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `transacoes`
+-- Table structure for table `transacoes`
 --
 
 CREATE TABLE `transacoes` (
@@ -48,25 +48,17 @@ CREATE TABLE `transacoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `transacoes`
+-- Dumping data for table `transacoes`
 --
 
 INSERT INTO `transacoes` (`id`, `descricao`, `valor`, `data`, `usuario_id`) VALUES
-(1, 'a', 12.00, '2024-04-23', 0),
-(2, 'a', 12.00, '2024-04-23', 0),
-(3, 'a', 12.00, '2024-04-23', 0),
-(4, 'toma', 1.00, '2024-04-23', 0),
-(5, 'toma', 1.00, '2024-04-23', 0),
-(6, 'toma', 1.00, '2024-04-23', 0),
-(7, '2', 1.00, '2024-04-23', 0),
-(8, 'testenfega', -20.00, '2024-04-23', 0),
-(9, 'teste', -10.00, '2024-04-23', 0),
-(10, '23', 2.00, '2024-04-23', 0);
+(1, 'Teste transação positiva', 20.00, '2024-05-09', 1),
+(2, 'Teste transação negativa', -10.00, '2024-05-09', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -77,61 +69,56 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'marcelo', 'marcelo.eduardo@hotmail.com', '123'),
-(2, '', '123@asd.com', '123'),
-(3, '', '123@asd.com', '123'),
-(4, '', '123@asd.com', '123'),
-(5, '', '123@asd.com', '123'),
-(6, 'teste2222', 'pereira.artur@hotmail.com', '123');
+(1, 'Adm', 'adm@adm', '123');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `login`
+-- Indexes for table `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `transacoes`
+-- Indexes for table `transacoes`
 --
 ALTER TABLE `transacoes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usuario_id` (`usuario_id`);
 
 --
--- Índices para tabela `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `login`
+-- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `transacoes`
+-- AUTO_INCREMENT for table `transacoes`
 --
 ALTER TABLE `transacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
