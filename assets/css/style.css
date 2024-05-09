@@ -409,6 +409,7 @@ h3 {
 
 .pageTitle {
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -463,7 +464,7 @@ h3 {
 .nav_top{
     width: auto;
     padding: 30px;
-    background-color: #0056b3;
+    background-color: #5429cc;
 }
 
 .buttons{

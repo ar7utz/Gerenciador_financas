@@ -10,7 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <title>Dashboard - Gerenciador</title>
+    <title>Dashboard - Gerenciador de Finanças</title>
 </head>
 <body>
     <div class="navLoginSucess">
@@ -20,6 +20,5 @@ session_start();
 	<div>
     	<h1>Teste</h1>
 	</div>
-	<script src="./assets/js/main.js"></script>
 </body>
 </html>
