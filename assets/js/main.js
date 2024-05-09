@@ -112,14 +112,12 @@ function removerTransacao(index) {
     }
 }
 
-
-
 function confirmarExclusao(transacaoId) {
     const transacaoIndex = parseInt(transacaoId);
 
     console.log('ID da transação:', transacaoId);
 
-    if (!isNaN(transacaoIndex) && transacaoIndex >= 0 && transacaoIndex < transacoes.length) {
+    if (!isNaN(transacaoIndex) && transacaoIndex >= 0) {
         const modalConfirmarExclusao = document.getElementById('modalConfirmarExclusao');
         const confirmarExcluirNotaButton = document.getElementById('confirmarExcluirNota');
         const cancelarExcluirNotaButton = document.getElementById('cancelarExcluirNota');
@@ -127,7 +125,23 @@ function confirmarExclusao(transacaoId) {
         modalConfirmarExclusao.style.display = 'flex';
 
         confirmarExcluirNotaButton.onclick = function () {
-            removerTransacao(transacaoIndex);
+            const xhr = new XMLHttpRequest();
+            const url = '../../modulos/transacoes/excluir_transação.php?id=' + transacaoId;
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        removerTransacao(transacaoIndex);
+                        location.reload();
+                    } else {
+                        console.error('Erro ao excluir a transação:', xhr.status);
+                    }
+                }
+            };
+
+            xhr.open('GET', url);
+            xhr.send();
+
             modalConfirmarExclusao.style.display = 'none';
         };
 
@@ -139,40 +153,10 @@ function confirmarExclusao(transacaoId) {
     }
 }
 
-function editarTransacao(transacaoId) {
-    console.log('ID da transação:', transacaoId);
-
-    const transacaoIndex = parseInt(transacaoId);
-
-    if (!isNaN(transacaoIndex) && transacaoIndex >= 0 && transacaoIndex < transacoes.length) {
-        const transacao = transacoes[transacaoIndex];
-        console.log('Transação:', transacao);
-
-        descricaoInput.value = transacao.descricao;
-        valorInput.value = transacao.valor;
-        dataInput.value = transacao.data;
-
-        indiceEdicao = transacaoIndex;
-
-        abrirModal();
-    } else {
-        console.error('Transação não encontrada:', transacaoId);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.editar').forEach(button => {
-        button.addEventListener('click', function() {
-            const transacaoId = this.getAttribute('data-id');
-            editarTransacao(transacaoId);
-        });
-    });
-
-    document.querySelectorAll('.excluir').forEach(button => {
-        button.addEventListener('click', function() {
-            const transacaoId = this.getAttribute('data-id');
-            confirmarExclusao(transacaoId);
-        });
+document.querySelectorAll('.excluir').forEach(button => {
+    button.addEventListener('click', function() {
+        const transacaoId = this.getAttribute('data-id');
+        confirmarExclusao(transacaoId);
     });
 });
 

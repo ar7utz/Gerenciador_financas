@@ -7,7 +7,7 @@
         <title>Cadastro de Usuário</title>
     </head>
     <body>
-        <a class="btn_voltar_cad" href="../../index.php">Voltar</a>
+        <a class="btn_voltar" href="../../index.php">Voltar</a>
         
         <form action="cadastrar.php" method="POST" class="formCad">
             

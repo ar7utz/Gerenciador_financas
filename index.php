@@ -8,8 +8,8 @@
 </head>
 <body>
   <div class="nav-login">
-    <a href="./modulos/login/login.php">Login</a>
-    <a href="./modulos/cadastro/cadastro.php">Registre-se</a>
+    <a id="btn_login" href="./modulos/login/login.php">Login</a>
+    <a id="btn_registre"href="./modulos/cadastro/cadastro.php">Registre-se</a>
   </div>
   <h1 class="titulo_index">Gerenciador de Finanças</h1>
 </body>

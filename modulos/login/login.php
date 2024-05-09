@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../../assets/css/style.css">
     </head>
     <body>
-        <a class="btn_voltar_cad" href="../../index.php">Voltar</a>
+        <a class="btn_voltar" href="../../index.php">Voltar</a>
 
         <form action="logon.php" method="POST" class="form_login">
             <div class="pageTitle">

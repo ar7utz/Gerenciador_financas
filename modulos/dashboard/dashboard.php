@@ -102,12 +102,12 @@ include ('../../assets/bd/conexao.php');
                 // Exibir as transações no histórico
                 while ($row = $resultado->fetch_assoc()) {
                   echo '<li>';
-                  echo '<span class="descricao">' . $row['descricao'] . '</span>';
-                  echo '<span class="data">' . $row['data'] . '</span>';
-                  echo '<span class="valor">' . $row['valor'] . '</span>';
+                  echo '<span id="descricao" class="descricao">' . $row['descricao'] . '</span>';
+                  echo '<span id="data" class="data">' . $row['data'] . '</span>';
+                  echo '<span id="valor" class="valor">' . $row['valor'] . '</span>';
                   echo '<div>';
-                  echo '<button class="editar" data-id="' . $row['id'] . '">Editar</button>';
-                  echo '<button class="excluir" data-id="' . $row['id'] . '">Excluir</button>';
+                  echo '<button id="" class="editar"><a href="../../modulos/transacoes/editar_transacao.php?id=' . $row['id'] . '">Editar</a></button>';
+                  echo '<button id="" class="excluir" data-id="' . $row['id'] . '">Excluir</button>';
                   echo '</div>';
                   echo '</li>';
                 }
@@ -150,6 +150,7 @@ include ('../../assets/bd/conexao.php');
         <button id="cancelarExcluirNota">Cancelar</button>
       </div>
     </div>
+
 
   <script src="../../assets/js/main.js"></script>
   </body>

@@ -260,6 +260,10 @@ h3 {
     justify-content: flex-start;
 }
 
+.editar a{
+    color: #fff;
+}
+
 #toggleModal{
     border: 2px outset black;
 }
@@ -277,7 +281,7 @@ h3 {
     right: 10px;
     padding: 10px 20px;
     border: 2px outset black;
-    background-color: #007bff;
+    background-color: #808080;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -287,7 +291,7 @@ h3 {
 }
 
 .btn_sair:hover {
-    background-color: #0056b3;
+    background-color: #FF0000;
 }
 
 .btn_voltar {
@@ -298,7 +302,7 @@ h3 {
     left: 10px;
     padding: 10px 20px;
     border: 2px outset black;
-    background-color: #0056b3;
+    background-color: #808080;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -308,18 +312,27 @@ h3 {
 }
 
 .btn_voltar:hover{
-    background-color: #0056b3;
+    background-color: #9ACD32;
 }
+/* nav login*/
 
 .nav-login{
     width: 100%;
-    background-color: #e92929;
+    background-color: #5429cc;
     color: #fff;
     text-align: right;
     padding: 15px;
     font-size: 20px;
 }
+#btn_login, #btn_registre{
+    color: #fff;
+    padding-left: 10px;
+}
 
+#btn_login:hover, #btn_registre:hover{
+    color: #1C1C1C;
+    transition: .3s;
+}
 /*cadastro*/
 
 .formCad {
@@ -430,9 +443,75 @@ h3 {
 
 .navLoginSucess{
     width: 100%;
-    background-color: #e92929;
+    background-color: #5429cc;
     color: #fff;
     text-align: right;
     padding: 15px;
     font-size: 20px;
+}
+
+.navLoginSucess a{
+    color: #fff;
+}
+
+.navLoginSucess a:hover{
+    color: #1C1C1C;
+    transition: .3s;
+}
+
+/*editar transação*/
+.nav_top{
+    width: auto;
+    padding: 30px;
+    background-color: #0056b3;
+}
+
+.buttons{
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form_editar{
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form_editar input[name="descricao"],
+.form_editar input[name="valor"],
+.form_editar input[name="data"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form_editar button{
+    padding: 10px 20px;
+    border: 2px outset black;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.form_editar button:hover{
+    background-color: #12a454;
+}
+
+/*widgets dashboard-login-sucefull*/
+
+#widgets{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
