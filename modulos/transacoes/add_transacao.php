@@ -3,9 +3,14 @@ session_start();
 
 include '../../assets/bd/conexao.php';
 
+session_start();
+
+include '../../assets/bd/conexao.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
-    $valor = (float)$_POST['valor'];
+    $valor = str_replace(',', '.', $_POST['valor']); // Substitui vírgula por ponto
+    $valor = (float)$valor;
     $data = $_POST['data'];
     $usuario_id = $_SESSION['user_id'];
     $tipo = $_POST['tipo']; // Obter o tipo de transação (positivo ou negativo)
@@ -34,6 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo json_encode(['status' => 'erro', 'mensagem' => 'Método de solicitação inválido. Use POST.']);
 }
+
+$conn->close();
+
 
 $conn->close();
 ?>

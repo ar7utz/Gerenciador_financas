@@ -15,7 +15,7 @@ let indiceEdicao = -1;
 
 function adicionarTransacao() {
     const descricao = descricaoInput.value.trim();
-    const valor = parseFloat(valorInput.value);
+    const valor = parseFloat(valorInput.value.replace(',', '.')); // Substitui vírgula por ponto
     const data = dataInput.value;
 
     if (descricao === '' || isNaN(valor) || data === '') {
@@ -46,6 +46,7 @@ function adicionarTransacao() {
     indiceEdicao = -1;
     fecharModal();
 }
+
 
 
 function atualizarHistorico(transacao) {
