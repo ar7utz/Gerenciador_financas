@@ -14,11 +14,16 @@ session_start();
 </head>
 <body>
     <div class="navLoginSucess">
-        <a href="../dashboard/dashboard.php">Dashboard</a>
         <a id="btn_logout" href="../login/logout.php">Logout</a>
     </div>
 	<div>
-    	<h1>Teste</h1>
+        <div class="container_hplogin" onclick="window.location='../../modulos/dashboard/dashboard.php'">
+            <img src="../../assets/imgs/img_background_card_to_dashboard.png">
+            <div class="text_card">
+                <p>Dashboard</p>
+            </div>
+        </div>
+        
 	</div>
 </body>
 </html>

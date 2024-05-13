@@ -314,6 +314,7 @@ h3 {
 .btn_voltar:hover{
     background-color: #9ACD32;
 }
+
 /* nav login*/
 
 .nav-login{
@@ -327,12 +328,23 @@ h3 {
 #btn_login, #btn_registre{
     color: #fff;
     padding-left: 10px;
+    justify-content: flex-end;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #4613d1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 #btn_login:hover, #btn_registre:hover{
     color: #1C1C1C;
     transition: .3s;
 }
+
 /*cadastro*/
 
 .formCad {
@@ -451,12 +463,23 @@ h3 {
     font-size: 20px;
 }
 
-.navLoginSucess a{
+#btn_logout {
     color: #fff;
+    padding-left: 10px;
+    justify-content: flex-end;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #4613d1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.navLoginSucess a:hover{
-    color: #1C1C1C;
+#btn_logout:hover{
+    background-color: #FF0000;
     transition: .3s;
 }
 
@@ -496,7 +519,7 @@ h3 {
 .form_editar button{
     padding: 10px 20px;
     border: 2px outset black;
-    background-color: #007bff;
+    background-color: #5429cc;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -515,4 +538,48 @@ h3 {
     text-align: center;
     align-items: center;
     justify-content: center;
+}
+
+/*Estilo dos cards de login para ir ao dashboard*/
+
+.container_hplogin{
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform .5s ease;
+    cursor: pointer;
+    border: solid 3px #000;
+    margin-top: 60px;
+}
+
+.container_hplogin:hover{
+    transform: scale(1.1);
+}
+
+.text_card{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background-color: #cecece;
+    bottom: 0;
+    border-radius: 0px 0px 13px 13px;
+    color: #000;
+    font-size: 20px;
+}
+
+.container_hplogin img{
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
+}
+
+.container_hplogin img:hover{
+    filter: blur(1px);
 }
