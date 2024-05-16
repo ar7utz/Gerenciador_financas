@@ -3,10 +3,6 @@ session_start();
 
 include '../../assets/bd/conexao.php';
 
-session_start();
-
-include '../../assets/bd/conexao.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
     $valor = str_replace(',', '.', $_POST['valor']); // Substitui vírgula por ponto

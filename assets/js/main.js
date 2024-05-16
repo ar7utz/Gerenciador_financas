@@ -15,11 +15,23 @@ let indiceEdicao = -1;
 
 function adicionarTransacao() {
     const descricao = descricaoInput.value.trim();
-    const valor = parseFloat(valorInput.value.replace(',', '.')); // Substitui vírgula por ponto
+    const valor = valorInput.value.trim();
     const data = dataInput.value;
 
-    if (descricao === '' || isNaN(valor) || data === '') {
+    if (descricao === '' || valor === '' || data === '') {
         alert('Preencha todos os campos corretamente.');
+        return;
+    }
+
+    if (!/^(\d+([,.]\d{1,2})?)$/.test(valor)) {
+        alert('O formato do valor é inválido. Use números e uma vírgula opcional seguida de até duas casas decimais.');
+        return;
+    }
+
+    const valorFormatado = valor.replace(',', '.');
+    const valorNumerico = parseFloat(valorFormatado);
+    if (isNaN(valorNumerico)) {
+        alert('O valor inserido não é válido.');
         return;
     }
 

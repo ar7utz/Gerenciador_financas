@@ -131,7 +131,7 @@ include ('../../assets/bd/conexao.php');
                 </div>
                 <form id="novaTransacaoForm" method="POST" action="adicionarTransacao.php">
                     <input type="text" name="descricao" placeholder="Descrição" required>
-                    <input type="number" name="valor" placeholder="Valor" required>
+                    <input type="text" name="valor" placeholder="Valor" required>
                     <input type="date" name="data" required>
                     <div class="botoes">
                         <button type="button" class="cancelar" id="fecharModal">Cancelar</button>
@@ -149,7 +149,6 @@ include ('../../assets/bd/conexao.php');
         <button id="cancelarExcluirNota">Cancelar</button>
       </div>
     </div>
-
 
   <script src="../../assets/js/main.js"></script>
   </body>
