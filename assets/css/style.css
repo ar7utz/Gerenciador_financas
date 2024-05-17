@@ -581,8 +581,9 @@ h3 {
     width: 100%;
     border-radius: 12px;
     height: 100%;
+    filter: blur(1px);
 }
 
 .container_hplogin img:hover{
-    filter: blur(1px);
+    filter: blur(0px);
 }

@@ -13,6 +13,7 @@ include ('../../assets/bd/conexao.php');
 
     <link rel="stylesheet" href="../../assets/css/style.css" />
     <link rel="stylesheet" href="../../assets/css/scrollbar.css" />
+    <link rel="shortcut icon" href="../../dinheiro.ico"/>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
