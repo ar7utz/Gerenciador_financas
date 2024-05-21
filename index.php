@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,8 @@
     <a id="btn_login" href="./modulos/login/login.php">Login</a>
     <a id="btn_registre"href="./modulos/cadastro/cadastro.php">Registre-se</a>
   </div>
-  <h1 class="titulo_index">Gerenciador de Finanças</h1>
-</body>
+  <div>
+    <h1 class="titulo_index">Gerenciador de Finanças</h1>
+  </div>
+  </body>
 </html>
