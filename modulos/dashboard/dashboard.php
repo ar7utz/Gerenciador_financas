@@ -1,6 +1,37 @@
 <?php
 session_start();
 include ('../../assets/bd/conexao.php');
+
+$filtro = isset($_GET['filtro']) ? $_GET['filtro'] : 'data-desc';
+$usuario_id = $_SESSION['user_id'];
+$order_by = 'data DESC';
+
+switch ($filtro) {
+  case 'data-asc':
+      $order_by = 'data ASC';
+      break;
+  case 'data-desc':
+      $order_by = 'data DESC';
+      break;
+  case 'valor-asc':
+      $order_by = 'valor ASC';
+      break;
+  case 'valor-desc':
+      $order_by = 'valor DESC';
+      break;
+  case 'descricao-asc':
+      $order_by = 'descricao ASC';
+      break;
+  case 'descricao-desc':
+      $order_by = 'descricao DESC';
+      break;
+}
+
+$sql = "SELECT * FROM transacoes WHERE usuario_id = ? ORDER BY $order_by";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $usuario_id);
+$stmt->execute();
+$resultado = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -78,6 +109,21 @@ include ('../../assets/bd/conexao.php');
       </div>
         <div class="historico">
           <h2>Histórico</h2>
+
+
+          <nav class="filtro-nav">
+        <label for="filtro">Filtrar por:</label>
+        <select id="filtro" onchange="aplicarFiltro()">
+          <option value="data-asc" <?php echo ($filtro == 'data-asc') ? 'selected' : ''; ?>>Data (Mais antigos)</option>
+          <option value="data-desc" <?php echo ($filtro == 'data-desc') ? 'selected' : ''; ?>>Data (Mais recentes)</option>
+          <option value="valor-asc" <?php echo ($filtro == 'valor-asc') ? 'selected' : ''; ?>>Valor (Menor para maior)</option>
+          <option value="valor-desc" <?php echo ($filtro == 'valor-desc') ? 'selected' : ''; ?>>Valor (Maior para menor)</option>
+          <option value="descricao-asc" <?php echo ($filtro == 'descricao-asc') ? 'selected' : ''; ?>>Descrição (A-Z)</option>
+          <option value="descricao-desc" <?php echo ($filtro == 'descricao-desc') ? 'selected' : ''; ?>>Descrição (Z-A)</option>
+        </select>
+      </nav>
+
+
           <ul id="historico-list">
           <?php
             include ('../../assets/bd/conexao.php');
@@ -85,12 +131,6 @@ include ('../../assets/bd/conexao.php');
             if (isset($_SESSION['user_id'])) {
               $usuario_id = $_SESSION['user_id'];
           
-              $sql = "SELECT * FROM transacoes WHERE usuario_id = ? ORDER BY data DESC";
-              $stmt = $conn->prepare($sql);
-              $stmt->bind_param('i', $usuario_id);
-              $stmt->execute();
-              $resultado = $stmt->get_result();
-
               $sql = "SELECT * FROM transacoes WHERE usuario_id = ? ORDER BY data DESC";
               $stmt = $conn->prepare($sql);
               $stmt->bind_param('i', $usuario_id);
@@ -152,5 +192,11 @@ include ('../../assets/bd/conexao.php');
     </div>
 
   <script src="../../assets/js/main.js"></script>
+  <script>
+      function aplicarFiltro() {
+      const filtro = document.getElementById('filtro').value;
+      window.location.href = `?filtro=${filtro}`;
+      }
+    </script>
   </body>
 </html>

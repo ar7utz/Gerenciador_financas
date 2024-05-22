@@ -592,3 +592,22 @@ h3 {
 .container_hplogin img:hover{
     filter: blur(0px);
 }
+
+/*menu de filtragem*/
+
+.filtro-nav {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  
+  .filtro-nav label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .filtro-nav select {
+    padding: 5px;
+    font-size: 16px;
+  }

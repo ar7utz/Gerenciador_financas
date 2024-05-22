@@ -180,5 +180,6 @@ function atualizarHistorico() {
         historicoList.appendChild(listItem);
     });
 
-    console.log('Transações:', transacoes); // Adiciona um log para exibir o array de transações
+    console.log('Transações:', transacoes);
 }
+  
