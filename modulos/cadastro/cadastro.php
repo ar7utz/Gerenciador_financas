@@ -24,6 +24,11 @@
                 <input type="email" name="email" placeholder="E-mail" required>
             </div>
                 
+            <div class="telefone">
+                <label for="telefone">Telefone:</label>
+                <input type="number" name="telefone" placeholder="Telefone" required>
+            </div>
+
             <div class="password">
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" placeholder="Senha" required>

@@ -59,6 +59,7 @@ $resultado = $stmt->get_result();
         <h1>Gerenciamento de Finanças</h1>
         <a class="btn_sair" href="../login/logout.php">Sair</a>
         <a class="btn_voltar" href="../dashboard/hplogin.php">Voltar</a>
+        <a class="btn_perfil" href="../usuario/perfil.php">Meu Perfil</a>
         <button id="toggleModal">+ Nova Transação</button>
       </div>
     </header>
