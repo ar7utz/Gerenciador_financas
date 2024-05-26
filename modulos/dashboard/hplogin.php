@@ -24,7 +24,11 @@ session_start();
                 <p>Dashboard</p>
             </div>
         </div>
-        
+        <div class="container_hplogin" onclick="window.location='../planejador/planejador.php'">
+            <div class="text_card">
+                <p>Planejador</p>
+            </div>
+        </div>
 	</div>
 </body>
 </html>
