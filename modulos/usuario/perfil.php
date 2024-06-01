@@ -1,12 +1,29 @@
 <?php
 session_start();
+
 include ('../../assets/bd/conexao.php');
+
+$id = $_SESSION['id'];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Redireciona para a página de perfil
     header("Location: perfil.php");
     exit();
+}
+
+
+$sql = "SELECT * FROM user WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+if($resultado->num_rows > 0) {
+    $usuario = $resultado->fetch_assoc();
+} else {
+    echo "Usuário não encontrado.";
+    exit;
 }
 ?>
 
@@ -36,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="../usuario/atualizarPerfil.php" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="NomeCompleto">Nome:</label>
-                    <input type="text" id="NomeCompleto" name="nome" >
+                    <input type="text" id="NomeCompleto" name="nome" value="<?php echo $user['nome']; ?>" >
                 </div>
                 <div class="email">
                     <label for="email">E-mail:</label>

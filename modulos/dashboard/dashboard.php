@@ -112,18 +112,22 @@ $resultado = $stmt->get_result();
           <h2>Histórico</h2>
 
 
-          <nav class="filtro-nav">
-        <label for="filtro">Filtrar por:</label>
-        <select id="filtro" onchange="aplicarFiltro()">
-          <option value="data-asc" <?php echo ($filtro == 'data-asc') ? 'selected' : ''; ?>>Data (Mais antigos)</option>
-          <option value="data-desc" <?php echo ($filtro == 'data-desc') ? 'selected' : ''; ?>>Data (Mais recentes)</option>
-          <option value="valor-asc" <?php echo ($filtro == 'valor-asc') ? 'selected' : ''; ?>>Valor (Menor para maior)</option>
-          <option value="valor-desc" <?php echo ($filtro == 'valor-desc') ? 'selected' : ''; ?>>Valor (Maior para menor)</option>
-          <option value="descricao-asc" <?php echo ($filtro == 'descricao-asc') ? 'selected' : ''; ?>>Descrição (A-Z)</option>
-          <option value="descricao-desc" <?php echo ($filtro == 'descricao-desc') ? 'selected' : ''; ?>>Descrição (Z-A)</option>
-        </select>
-      </nav>
+        <nav class="filtro-nav">
+          <label for="filtro">Filtrar por:</label>
+          <select id="filtro" onchange="aplicarFiltro()">
+            <option value="data-asc" <?php echo ($filtro == 'data-asc') ? 'selected' : ''; ?>>Data (Mais antigos)</option>
+            <option value="data-desc" <?php echo ($filtro == 'data-desc') ? 'selected' : ''; ?>>Data (Mais recentes)</option>
+            <option value="valor-asc" <?php echo ($filtro == 'valor-asc') ? 'selected' : ''; ?>>Valor (Menor para maior)</option>
+            <option value="valor-desc" <?php echo ($filtro == 'valor-desc') ? 'selected' : ''; ?>>Valor (Maior para menor)</option>
+            <option value="descricao-asc" <?php echo ($filtro == 'descricao-asc') ? 'selected' : ''; ?>>Descrição (A-Z)</option>
+            <option value="descricao-desc" <?php echo ($filtro == 'descricao-desc') ? 'selected' : ''; ?>>Descrição (Z-A)</option>
+          </select>
+        </nav>
 
+        <nav class="filtro-nav">
+          <label for="filtroSearch">Procurar</label>
+          <input type="text">
+        </nav>
 
           <ul id="historico-list">
           <?php
@@ -195,8 +199,21 @@ $resultado = $stmt->get_result();
   <script src="../../assets/js/main.js"></script>
   <script>
       function aplicarFiltro() {
-      const filtro = document.getElementById('filtro').value;
-      window.location.href = `?filtro=${filtro}`;
+        const filtro = document.getElementById('filtro').value;
+        window.location.href = `?filtro=${filtro}`;
+      }
+
+      function filtrarTransacoes() {
+        const filtro = document.getElementById('filtroSearch').value.toLowerCase();
+        const transacoes = document.querySelectorAll('#historico-list li');
+        transacoes.forEach(transacao => {
+            const descricao = transacao.querySelector('.descricao').innerText.toLowerCase();
+            if (descricao.includes(filtro)) {
+                transacao.style.display = '';
+            } else {
+                transacao.style.display = 'none';
+            }
+        });
       }
     </script>
   </body>
