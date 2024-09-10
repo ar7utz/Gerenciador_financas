@@ -6,6 +6,11 @@ $filtro = isset($_GET['filtro']) ? $_GET['filtro'] : 'data-desc';
 $usuario_id = $_SESSION['user_id'];
 $order_by = 'data DESC';
 
+$filter = isset($_GET['filtro']) ? $_GET['filtro'] : '';
+
+
+
+
 switch ($filtro) {
   case 'data-asc':
       $order_by = 'data ASC';
